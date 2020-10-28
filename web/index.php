@@ -19,7 +19,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
+  return str_repeat('Hello', getenv('TIMES'));
 });
 
 $app->get('/cowsay', function() use($app) {
